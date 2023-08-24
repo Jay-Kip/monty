@@ -24,14 +24,26 @@ int execute(char *content, stack_t **stack, unsigned int counter, FILE *file, bu
 
 	bus->arg = strtok(NULL, " \n\t");
 
+	/*printf("op: %s, arg: %s\n", op, bus->arg);*/
+
+	printf("Tokenized op: %s\n", op);
+    	printf("Tokenized arg: %s\n", bus->arg);
+
 	while (opst[i].opcode && op)
 	{
-		printf("Error 3 is here\n");
+		/*printf("Error 3 is here\n");*/
+
+		/*printf("Executing instructions: %s\n", opst[i].opcode);*/
+
+		printf("Comparing opcode: %s with %s\n", op, opst[i].opcode);
 
 		if (strcmp(op, opst[i].opcode) == 0)
 		{
-			printf("Error 4 is here\n");
+			/*printf("Error 4 is here\n");*/
+			printf("Opcode match found: %s\n", opst[i].opcode);
+			printf("Executing instructions: %s\n", opst[i].opcode);
 			opst[i].f(stack, counter, bus);
+			printf("Instructions executed: %s\n", opst[i].opcode);
 			return (0);
 		}
 		i++;
