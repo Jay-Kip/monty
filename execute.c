@@ -16,32 +16,32 @@ int execute(char *content, stack_t **stack, unsigned int counter, FILE *file)
 		{NULL, NULL}
 	};
 	unsigned int i = 0;
-	char *op;
+	char *input;
 
-	op = strtok(content, " \n\t");
-	if (op && op[0] == '#')
+	input =  strtok(content, " \n\t"); /*This line tokenizes input*/
+	if (input && input[0] == '#')
 		return (0);
 
 	bus.args = strtok(NULL, " \n\t");
 
 
-	while (opst[i].opcode && op)
+	while (opst[i].opcode && input)
 	{
 
-		/*printf("Comparing opcode: %s with %s\n", op, opst[i].opcode);*/
+		printf("Comparing opcode: %s with %s\n", input, opst[i].opcode);
 
-		if (strcmp(op, opst[i].opcode) == 0)
+		if (strcmp(input, opst[i].opcode) == 0)
 		{
 
-			/*printf("Error 4 is here\n");*/
+			printf("Error 4 is here\n");
 			opst[i].f(stack, counter, &bus);
 		}
 		i++;
 	}
 
-	if (op && opst[i].opcode == NULL)
+	if (input && opst[i].opcode == NULL)
 	{
-		fprintf(stderr, "L%d: unknown instruction %s\n", counter, op);
+		fprintf(stderr, "L%d: unknown instruction %s\n", counter, input);
 		fclose(file);
 		free(content);
 		/*free_stack(*stack);*/
