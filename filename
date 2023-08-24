@@ -1,0 +1,24 @@
+#include "monty.h"
+#include <stdio.h>
+#include <fcntl.h>
+void print_file_name(FILE *monty_file)
+{
+	int fileno_result = fileno(monty_file);
+
+	if (fileno_result != -1)
+	{
+		char file_name[1024];
+		int fd = fileno_result;
+
+		if (fcntl(fd, F_GETPATH, file_name) != -1)
+		{
+			printf("File name is: %s\n", file_name);
+		}
+		else
+			printf("Error getting file name\n");
+	}
+	else
+	{
+		printf("Error getting descriptor\n");
+	}
+}

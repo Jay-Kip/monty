@@ -16,6 +16,7 @@ void push_into(stack_t **head, unsigned int counter, bus_t *bus)
 			if (bus->args[i] < 48 || bus->args[i] > 57) /*Checks if args is a number*/
 			{
 				printf("%d\n", bus->args[i]);
+				/*print_file_name(bus->monty_file);*/
 				flag = 1;
 			}
 		}
@@ -37,7 +38,11 @@ void push_into(stack_t **head, unsigned int counter, bus_t *bus)
 
 	naija = atoi(bus->args);
 	if (bus->extra == 0)
+	{
 		add_node(head, naija);
-	/*else
-		addqueue(head, naija);*/
+	}
+	else
+	{
+		addqueue(head, naija);
+	}
 }

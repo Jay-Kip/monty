@@ -36,10 +36,11 @@ int main(int argc, char *argv[])
 		content = NULL;
 		read = getline(&content, &size, bus.monty_file);
 		bus.content = content;
-
+		counter++;
 		if (read > 0)
 		{
 			execute(content, &stack, counter, file);
+			
 		}
 		free(content);
 	}
