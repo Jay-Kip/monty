@@ -13,7 +13,7 @@ int execute(char *content, stack_t **stack, unsigned int counter, FILE *file, bu
 {
 	instruction_t opst[] = {
 		{"pall", print_stack_values},
-		{"div", divide_top_two},
+	/*	{"div", divide_top_two},*/
 	};
 	unsigned int i = 0;
 	char *op;
@@ -26,8 +26,11 @@ int execute(char *content, stack_t **stack, unsigned int counter, FILE *file, bu
 
 	while (opst[i].opcode && op)
 	{
+		printf("Error 3 is here\n");
+
 		if (strcmp(op, opst[i].opcode) == 0)
 		{
+			printf("Error 4 is here\n");
 			opst[i].f(stack, counter, bus);
 			return (0);
 		}
