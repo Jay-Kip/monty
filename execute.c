@@ -17,6 +17,7 @@ int execute(char *content, stack_t **stack, unsigned int counter, FILE *file)
 	};
 	unsigned int i = 0;
 	char *input;
+	char *op;
 
 	input =  strtok(content, " \n\t"); /*This line tokenizes input*/
 	if (input && input[0] == '#')
@@ -25,8 +26,11 @@ int execute(char *content, stack_t **stack, unsigned int counter, FILE *file)
 	bus.args = strtok(NULL, " \n\t");
 
 
-	while (opst[i].opcode && input)
+	while (opst[i].opcode)
 	{
+		op = strtok(NULL, " \n\t");
+    		if (!op)
+        	break;
 
 		printf("Comparing opcode: %s with %s\n", input, opst[i].opcode);
 
