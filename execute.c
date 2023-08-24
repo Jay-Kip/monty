@@ -1,5 +1,4 @@
 #include "monty.h"
-
 /**
  * execute - executes the opcode
  * @content: line content
@@ -9,11 +8,11 @@
  *
  * Return: 0 on success
  */
-int execute(char *content, stack_t **stack, unsigned int counter, FILE *file, bus_t *bus)
+int execute(char *content, stack_t **stack, unsigned int counter, FILE *file)
 {
 	instruction_t opst[] = {
-		{"pall", print_stack_values},
-	/*	{"div", divide_top_two},*/
+		{"pall", print_values_in_stack},
+		{"push", push_into}
 	};
 	unsigned int i = 0;
 	char *op;
@@ -22,7 +21,7 @@ int execute(char *content, stack_t **stack, unsigned int counter, FILE *file, bu
 	if (op && op[0] == '#')
 		return (0);
 
-	bus->arg = strtok(NULL, " \n\t");
+	bus.args = strtok(NULL, " \n\t");
 
 	while (opst[i].opcode && op)
 	{
@@ -31,7 +30,7 @@ int execute(char *content, stack_t **stack, unsigned int counter, FILE *file, bu
 		if (strcmp(op, opst[i].opcode) == 0)
 		{
 			printf("Error 4 is here\n");
-			opst[i].f(stack, counter, bus);
+			opst[i].f(stack, counter, &bus);
 			return (0);
 		}
 		i++;
@@ -42,7 +41,7 @@ int execute(char *content, stack_t **stack, unsigned int counter, FILE *file, bu
 		fprintf(stderr, "L%d: unknown instruction %s\n", counter, op);
 		fclose(file);
 		free(content);
-		free_stack(*stack);
+		/*free_stack(*stack);*/
 		exit(EXIT_FAILURE);
 	}
 
