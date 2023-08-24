@@ -12,7 +12,8 @@ int execute(char *content, stack_t **stack, unsigned int counter, FILE *file)
 {
 	instruction_t opst[] = {
 		{"pall", print_values_in_stack},
-		{"push", push_into}
+		{"push", push_into},
+		{NULL, NULL}
 	};
 	unsigned int i = 0;
 	char *op;
@@ -23,32 +24,17 @@ int execute(char *content, stack_t **stack, unsigned int counter, FILE *file)
 
 	bus.args = strtok(NULL, " \n\t");
 
-	/*printf("op: %s, arg: %s\n", op, bus->arg);*/
-
-	printf("Tokenized op: %s\n", op);
-    	printf("Tokenized arg: %s\n", bus.args);
 
 	while (opst[i].opcode && op)
 	{
-		/*printf("Error 3 is here\n");*/
 
-		/*printf("Executing instructions: %s\n", opst[i].opcode);*/
-
-		printf("Comparing opcode: %s with %s\n", op, opst[i].opcode);
+		/*printf("Comparing opcode: %s with %s\n", op, opst[i].opcode);*/
 
 		if (strcmp(op, opst[i].opcode) == 0)
 		{
 
-			printf("Error 4 is here\n");
-			opst[i].f(stack, counter, &bus);
-
 			/*printf("Error 4 is here\n");*/
-			printf("Opcode match found: %s\n", opst[i].opcode);
-			printf("Executing instructions: %s\n", opst[i].opcode);
 			opst[i].f(stack, counter, &bus);
-			printf("Instructions executed: %s\n", opst[i].opcode);
-
-			return (0);
 		}
 		i++;
 	}
