@@ -14,6 +14,7 @@ int execute(char *content, stack_t **stack, unsigned int counter, FILE *file)
 		{"pall", print_values_in_stack},
 		{"pall$", print_values_in_stack},
 		{"push", push_into},
+		{"swap", f_swap},
 		{NULL, NULL}
 	};
 	unsigned int i = 0;
@@ -35,7 +36,7 @@ int execute(char *content, stack_t **stack, unsigned int counter, FILE *file)
 
 			opst[i].f(stack, counter, &bus); /*The .f points to the function at opst[i]*/
 			return (0);
-			printf("Error 5 is here\n");
+
 
 			
 		}

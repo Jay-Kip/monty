@@ -13,11 +13,13 @@ void push_into(stack_t **head, unsigned int counter, bus_t *bus)
 
 		for (; bus->args[i] != '\0'; i++)
 		{
-			if (bus->args[i] < 48 || bus->args[i] > 57) /*Checks if args is a number*/
+			/*if (bus->args[i] < 48 || bus->args[i] > 57) Checks if args is a number*/
+			if (!isdigit(bus->args[i])) /* Checks if args is a number */
 			{
 				printf("%d\n", bus->args[i]);
 				/*print_file_name(bus->monty_file);*/
 				flag = 1;
+				break;
 			}
 		}
 		if (flag == 1)
