@@ -43,6 +43,7 @@ void push_into(stack_t **head, unsigned int counter, bus_t *bus)
 	}
 	else
 	{
+		printf("There\n");
 		addqueue(head, naija);
 	}
 }
