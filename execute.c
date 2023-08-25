@@ -15,12 +15,12 @@ int execute(char *content, stack_t **stack, unsigned int counter, FILE *file)
 		{"push", push_into},
 		{"pall", print_values_in_stack},
 		{"pall$", print_values_in_stack},
-<<<<<<< HEAD
-		{"pint", pint},
-=======
+
+		/*{"pint", pint},*/
+
 		{"push", push_into},
 		{"swap", f_swap},
->>>>>>> 96ed8165a625e651d544e38fef35a5c4435c0536
+
 		{NULL, NULL}
 	};
 	unsigned int i = 0;
