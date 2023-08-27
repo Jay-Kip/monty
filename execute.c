@@ -5,7 +5,6 @@
  * @stack: pointer to the stack head
  * @counter: line counter
  * @file: pointer to monty file
- *
  * Return: 0 on success
  */
 int execute(char *content, stack_t **stack, unsigned int counter, FILE *file, bus_t *bus)
@@ -16,9 +15,7 @@ int execute(char *content, stack_t **stack, unsigned int counter, FILE *file, bu
 		{"pall", print_values_in_stack},
 		{"pall$", print_values_in_stack},
 		{"sub", f_sub},
-
 		/*{"pint", pint},*/
-
 		{"push", push_into},
 		{"swap", f_swap},
 
@@ -26,13 +23,16 @@ int execute(char *content, stack_t **stack, unsigned int counter, FILE *file, bu
 	};
 	unsigned int i = 0;
 	char *input;
-
 	input =  strtok(content, " \n\t"); /*This line tokenizes input*/
 	if (input && input[0] == '#')
 		return (0);
 
+<<<<<<< HEAD
 	bus->args = strtok(NULL, " \n\t");
 
+=======
+	bus.args = strtok(NULL, " \n\t");
+>>>>>>> 266d2a4f31f15bc9ceb550861c20ed9ff53b9d22
 	while (opst[i].opcode && input)
 	{
 
@@ -45,7 +45,7 @@ int execute(char *content, stack_t **stack, unsigned int counter, FILE *file, bu
 			return (0);
 
 
-			
+
 		}
 		i++;
 	}

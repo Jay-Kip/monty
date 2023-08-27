@@ -1,5 +1,9 @@
 #define _GNU_SOURCE
 #include "monty.h"
+<<<<<<< HEAD
+=======
+bus_t bus = {NULL, NULL, NULL, 0};
+>>>>>>> 266d2a4f31f15bc9ceb550861c20ed9ff53b9d22
 
 /**
 * main - monty code interpreter
