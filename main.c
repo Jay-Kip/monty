@@ -1,6 +1,5 @@
 #define _GNU_SOURCE
 #include "monty.h"
-bus_t bus = {NULL, NULL, NULL, 0};
 
 /**
 * main - monty code interpreter
@@ -16,6 +15,7 @@ int main(int argc, char *argv[])
 	ssize_t read = 1;
 	stack_t *stack = NULL;
 	unsigned int counter = 0;
+	bus_t bus = {NULL, NULL, NULL, 0};
 
 	if (argc != 2)
 	{
@@ -39,8 +39,7 @@ int main(int argc, char *argv[])
 		counter++;
 		if (read > 0)
 		{
-			execute(content, &stack, counter, file);
-			
+			execute(content, &stack, counter, file, &bus);
 		}
 		free(content);
 	}

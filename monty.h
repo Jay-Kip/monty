@@ -62,7 +62,7 @@ void add_node(stack_t **head, int n);
 void freestack(stack_t *head);
 void print_file_name(FILE *file);
 void addqueue(stack_t **head, int n);
-
+void f_sub(stack_t **head, unsigned int counter, bus_t *bus);
 void pint(stack_t **head, unsigned int counter);
 
 void f_swap(stack_t **head, unsigned int counter, bus_t *bus);
