@@ -8,7 +8,7 @@
  *
  * Return: 0 on success
  */
-int execute(char *content, stack_t **stack, unsigned int counter, FILE *file)
+int execute(char *content, stack_t **stack, unsigned int counter, FILE *file, bus_t *bus)
 {
 	instruction_t opst[] = {
 		/*{"pint", pint_func},*/
@@ -31,7 +31,7 @@ int execute(char *content, stack_t **stack, unsigned int counter, FILE *file)
 	if (input && input[0] == '#')
 		return (0);
 
-	bus.args = strtok(NULL, " \n\t");
+	bus->args = strtok(NULL, " \n\t");
 
 	while (opst[i].opcode && input)
 	{
@@ -41,7 +41,7 @@ int execute(char *content, stack_t **stack, unsigned int counter, FILE *file)
 		if (strcmp(input, opst[i].opcode) == 0)
 		{
 
-			opst[i].f(stack, counter, &bus); /*The .f points to the function at opst[i]*/
+			opst[i].f(stack, counter, bus); /*The .f points to the function at opst[i]*/
 			return (0);
 
 
