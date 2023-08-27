@@ -54,7 +54,7 @@ typedef struct instruction_s
 
 extern bus_t bus;
 
-
+/*bus_t bus = {NULL, NULL, NULL, 0};*/
 int execute(char *content, stack_t **head, unsigned int counter, FILE *file);
 void print_values_in_stack(stack_t **head, unsigned int counter, bus_t *bus);
 void push_into(stack_t **head, unsigned int counter, bus_t *bus);
