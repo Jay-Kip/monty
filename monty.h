@@ -54,13 +54,8 @@ typedef struct instruction_s
 
 extern bus_t bus;
 
-<<<<<<< HEAD
-
 int execute(char *content, stack_t **head, unsigned int counter, FILE *file, bus_t *bus);
-=======
 /*bus_t bus = {NULL, NULL, NULL, 0};*/
-int execute(char *content, stack_t **head, unsigned int counter, FILE *file);
->>>>>>> 266d2a4f31f15bc9ceb550861c20ed9ff53b9d22
 void print_values_in_stack(stack_t **head, unsigned int counter, bus_t *bus);
 void push_into(stack_t **head, unsigned int counter, bus_t *bus);
 void add_node(stack_t **head, int n);

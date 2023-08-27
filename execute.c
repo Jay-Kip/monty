@@ -27,12 +27,7 @@ int execute(char *content, stack_t **stack, unsigned int counter, FILE *file, bu
 	if (input && input[0] == '#')
 		return (0);
 
-<<<<<<< HEAD
 	bus->args = strtok(NULL, " \n\t");
-
-=======
-	bus.args = strtok(NULL, " \n\t");
->>>>>>> 266d2a4f31f15bc9ceb550861c20ed9ff53b9d22
 	while (opst[i].opcode && input)
 	{
 
